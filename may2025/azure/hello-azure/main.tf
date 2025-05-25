@@ -11,8 +11,9 @@ resource "azurerm_resource_group" "base" {
 
 resource "azurerm_storage_account" "store" {
     name = "fromtfltmay25"
-    resource_group_name = "fromtf1"
-    location = "centralindia"
+    # implicit dependency
+    resource_group_name = azurerm_resource_group.base.name
+    location = azurerm_resource_group.base.location
     account_tier = "Standard"
     account_replication_type = "RAGRS"
     # explicit dependency
