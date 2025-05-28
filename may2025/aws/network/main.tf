@@ -1,8 +1,8 @@
 # vpc
 resource "aws_vpc" "base" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.network_cidr
   tags = {
-    Name = "nop"
+    Name = var.network_name
   }
 }
 
@@ -10,9 +10,9 @@ resource "aws_vpc" "base" {
 resource "aws_subnet" "app1" {
   vpc_id            = aws_vpc.base.id
   availability_zone = "ap-south-1a"
-  cidr_block        = "10.0.0.0/24"
+  cidr_block        = var.subnet1_cidr
   tags = {
-    Name = "app1"
+    Name = var.subnet1_name
   }
 
   depends_on = [aws_vpc.base]
@@ -23,9 +23,9 @@ resource "aws_subnet" "app1" {
 resource "aws_subnet" "app2" {
   vpc_id            = aws_vpc.base.id
   availability_zone = "ap-south-1b"
-  cidr_block        = "10.0.1.0/24"
+  cidr_block        = var.subnet2_cidr
   tags = {
-    Name = "app2"
+    Name = var.subnet2_name
   }
   depends_on = [aws_vpc.base]
 }
@@ -35,9 +35,9 @@ resource "aws_subnet" "app2" {
 resource "aws_subnet" "db1" {
   vpc_id            = aws_vpc.base.id
   availability_zone = "ap-south-1a"
-  cidr_block        = "10.0.2.0/24"
+  cidr_block        = var.subnet3_cidr
   tags = {
-    Name = "db1"
+    Name = var.subnet3_name
   }
   depends_on = [aws_vpc.base]
 }
@@ -46,9 +46,9 @@ resource "aws_subnet" "db1" {
 resource "aws_subnet" "db2" {
   vpc_id            = aws_vpc.base.id
   availability_zone = "ap-south-1b"
-  cidr_block        = "10.0.3.0/24"
+  cidr_block        = var.subnet4_cidr
   tags = {
-    Name = "db2"
+    Name = var.subnet4_name
   }
   depends_on = [aws_vpc.base]
 }
