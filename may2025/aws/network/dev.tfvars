@@ -1,0 +1,7 @@
+region = "ap-south-1"
+subnet1_cidr = "192.168.0.0/24"
+subnet2_cidr = "192.168.1.0/24"
+subnet3_cidr = "192.168.2.0/24"
+subnet4_cidr = "192.168.3.0/24"
+network_cidr = "192.168.0.0/16"
+network_name = "spc"
