@@ -94,10 +94,12 @@ variable "web_security_group" {
 
 variable "web_server" {
   type = object({
-    name = string
+    name        = string
+    subnet_name = string
   })
   default = {
-    name = "web1"
+    name        = "web1"
+    subnet_name = "web"
   }
 
 }
