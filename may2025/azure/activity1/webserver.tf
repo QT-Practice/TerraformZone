@@ -61,4 +61,17 @@ resource "azurerm_linux_virtual_machine" "web" {
   }
   user_data = filebase64("nginx.sh")
 
+  connection {
+    type     = "ssh"
+    user     = var.web_server.admin_username
+    password = var.web_server.admin_password
+    host     = self.public_ip_address
+
+  }
+
+  provisioner "remote-exec" {
+    inline = ["apt update", "apt install nginx openjdk-17-jdk -y"]
+
+  }
+
 }
