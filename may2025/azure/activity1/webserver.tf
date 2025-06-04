@@ -37,3 +37,28 @@ resource "azurerm_network_interface_security_group_association" "web" {
   network_security_group_id = azurerm_network_security_group.web.id
   depends_on                = [azurerm_network_interface.web, azurerm_network_security_group.web]
 }
+
+resource "azurerm_linux_virtual_machine" "web" {
+  admin_username      = var.web_server.admin_username
+  location            = azurerm_resource_group.base.location
+  resource_group_name = azurerm_resource_group.base.name
+  name                = var.web_server.name
+  network_interface_ids = [
+    azurerm_network_interface.web.id
+  ]
+  size                            = var.web_server.size
+  disable_password_authentication = false
+  admin_password                  = var.web_server.admin_password
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+  source_image_reference {
+    publisher = var.web_server.publisher
+    offer     = var.web_server.offer
+    sku       = var.web_server.sku
+    version   = var.web_server.version
+  }
+  user_data = filebase64("nginx.sh")
+
+}

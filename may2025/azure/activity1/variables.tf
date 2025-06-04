@@ -94,12 +94,25 @@ variable "web_security_group" {
 
 variable "web_server" {
   type = object({
-    name        = string
-    subnet_name = string
+    name           = string
+    subnet_name    = string
+    admin_username = string
+    admin_password = string
+    publisher      = string
+    offer          = string
+    sku            = string
+    version        = string
+    size           = optional(string, "Standard_B1s")
   })
   default = {
-    name        = "web1"
-    subnet_name = "web"
+    name           = "web1"
+    subnet_name    = "web"
+    publisher      = "Canonical"
+    offer          = "0001-com-ubuntu-server-jammy"
+    sku            = "22_04-lts"
+    version        = "latest"
+    admin_username = "Dell"
+    admin_password = "qtdevops@1234@qt"
   }
 
 }
