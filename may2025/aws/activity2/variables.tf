@@ -43,3 +43,81 @@ variable "subnets_info" {
   }]
 
 }
+
+variable "web_security_group" {
+  type = object({
+    name        = string
+    description = string
+    ingress_rules = list(object({
+      name        = string
+      cidr_ipv4   = string
+      description = string
+      from_port   = number
+      to_port     = number
+      ip_protocol = string
+    }))
+    egress_rules = list(object({
+      name        = string
+      cidr_ipv4   = string
+      description = string
+      from_port   = number
+      to_port     = number
+      ip_protocol = string
+    }))
+  })
+}
+
+
+variable "app_security_group" {
+  type = object({
+    name        = string
+    description = string
+    ingress_rules = list(object({
+      name        = string
+      cidr_ipv4   = string
+      description = string
+      from_port   = number
+      to_port     = number
+      ip_protocol = string
+    }))
+    egress_rules = list(object({
+      name        = string
+      cidr_ipv4   = string
+      description = string
+      from_port   = number
+      to_port     = number
+      ip_protocol = string
+    }))
+  })
+}
+
+
+variable "db_security_group" {
+  type = object({
+    name        = string
+    description = string
+    ingress_rules = list(object({
+      name        = string
+      cidr_ipv4   = string
+      description = string
+      from_port   = number
+      to_port     = number
+      ip_protocol = string
+    }))
+    egress_rules = list(object({
+      name        = string
+      cidr_ipv4   = string
+      description = string
+      from_port   = number
+      to_port     = number
+      ip_protocol = string
+    }))
+  })
+}
+
+
+variable "build_id" {
+  type    = string
+  default = "1"
+
+}
