@@ -8,14 +8,14 @@ resource "aws_instance" "web" {
   ami                         = "ami-02521d90e7410d9f0"
   instance_type               = "t2.micro"
   key_name                    = aws_key_pair.ntier.key_name
-  vpc_security_group_ids      = [aws_security_group.web.id]
-  subnet_id                   = aws_subnet.subnets[0].id
+  vpc_security_group_ids      = [module.web_security_group.id]
+  subnet_id                   = module.public_vpc.subnet_ids[0]
   associate_public_ip_address = true
   tags = {
     Name = "web1"
   }
 
-  depends_on = [aws_key_pair.ntier, aws_subnet.subnets, aws_security_group.web]
+  depends_on = [aws_key_pair.ntier, module.public_vpc, module.web_security_group]
 }
 
 

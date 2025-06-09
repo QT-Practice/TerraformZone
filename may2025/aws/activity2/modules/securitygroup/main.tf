@@ -6,7 +6,6 @@ resource "aws_security_group" "base" {
     Name = var.security_group.name
   }
 
-  depends_on = [aws_vpc.base]
 }
 
 resource "aws_vpc_security_group_ingress_rule" "base" {
