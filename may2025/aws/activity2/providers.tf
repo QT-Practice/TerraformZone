@@ -5,6 +5,12 @@ terraform {
       version = "6.0.0-beta3"
     }
   }
+  backend "s3" {
+    bucket = "lttf-centralstate"
+    key = "activities/activity-2"
+    region = "ap-south-1"
+    
+  }
   required_version = ">= 1.11.0"
 }
 
