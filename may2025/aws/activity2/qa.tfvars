@@ -1,34 +1,34 @@
-region = "ap-south-1"
+region = "us-west-2"
 network_info = {
-  cidr_block           = "10.113.0.0/16"
+  cidr_block           = "10.112.0.0/16"
   enable_dns_hostnames = true
-  name                 = "ntier-dev"
+  name                 = "ntier-qa"
 }
 
 subnets_info = [{
   name              = "web1"
-  cidr_block        = "10.113.0.0/24"
-  availability_zone = "ap-south-1a"
+  cidr_block        = "10.112.0.0/24"
+  availability_zone = "us-west-2a"
   }, {
   name              = "web2"
-  cidr_block        = "10.113.1.0/24"
-  availability_zone = "ap-south-1b"
+  cidr_block        = "10.112.1.0/24"
+  availability_zone = "us-west-2b"
   }, {
   name              = "app1"
-  cidr_block        = "10.113.2.0/24"
-  availability_zone = "ap-south-1a"
+  cidr_block        = "10.112.2.0/24"
+  availability_zone = "us-west-2a"
   }, {
   name              = "app2"
-  cidr_block        = "10.113.3.0/24"
-  availability_zone = "ap-south-1b"
+  cidr_block        = "10.112.3.0/24"
+  availability_zone = "us-west-2b"
   }, {
   name              = "db1"
-  cidr_block        = "10.113.4.0/24"
-  availability_zone = "ap-south-1a"
+  cidr_block        = "10.112.4.0/24"
+  availability_zone = "us-west-2a"
   }, {
   name              = "db2"
-  cidr_block        = "10.113.5.0/24"
-  availability_zone = "ap-south-1b"
+  cidr_block        = "10.112.5.0/24"
+  availability_zone = "us-west-2b"
 }]
 
 
