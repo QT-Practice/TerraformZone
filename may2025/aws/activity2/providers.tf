@@ -9,6 +9,7 @@ terraform {
     bucket = "lttf-centralstate"
     key = "activities/activity-2"
     region = "ap-south-1"
+    use_lockfile = true
     
   }
   required_version = ">= 1.11.0"
