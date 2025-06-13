@@ -28,6 +28,14 @@ network_info = {
       az   = "ap-south-1b"
       cidr = "192.168.5.0/24"
       name = "app2"
+    } , {
+      az   = "ap-south-1a"
+      cidr = "192.168.6.0/24"
+      name = "mgmt1"
+      }, {
+      az   = "ap-south-1b"
+      cidr = "192.168.7.0/24"
+      name = "mgmt2"
     }
   ]
 }
